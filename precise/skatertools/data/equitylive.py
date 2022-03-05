@@ -14,7 +14,7 @@ def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None):
     attempts = 0
     while not success:
         try:
-            path = f'cache/{ticker}.csv'
+            path = f'/kaggle/input/precise-cache/{ticker}.csv'
             if not os.path.exists(path):
                 print('Getting '+ticker)
                 time.sleep(5)
