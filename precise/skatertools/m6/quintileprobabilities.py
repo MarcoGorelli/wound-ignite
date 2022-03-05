@@ -33,10 +33,10 @@ def scores_to_quintiles(x):
 
 
 
-def m6_probabilities(f, interval='d',n_dim=100, n_samples=5000, n_obs=200, verbose=False, love=None, hate=None, intensity=1.0):
+def m6_probabilities(f, interval='d',n_dim=100, n_samples=5000, n_obs=200, verbose=False, love=None, hate=None, intensity=1.0, last_date=None):
     if verbose:
         print('   ... retrieving data and estimating covariance')
-    covdf = m6_cov(f=f, interval=interval, n_dim=n_dim, n_obs=n_obs)
+    covdf = m6_cov(f=f, interval=interval, n_dim=n_dim, n_obs=n_obs, last_date=last_date)
     tickers = list(covdf.columns)
     sgma = covdf.values
     mu = affection_tilt(covdf=covdf, love=love, hate=hate, intensity=intensity)
