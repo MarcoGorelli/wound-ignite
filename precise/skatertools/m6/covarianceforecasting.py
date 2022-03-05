@@ -5,7 +5,7 @@ from pprint import pprint
 from precise.skaters.covariance.runemp import run_emp_pcov_d0
 
 
-def m6_data(interval='d', n_dim=100, n_obs=300):
+def m6_data(interval='d', n_dim=100, n_obs=300, last_date=None):
     constituents = pd.read_csv(
         'https://raw.githubusercontent.com/microprediction/m6/main/data/official/M6_Universe.csv')[:n_dim]
     tickers = constituents['symbol'].values
@@ -14,7 +14,7 @@ def m6_data(interval='d', n_dim=100, n_obs=300):
         interval = 'd'
     df = pd.DataFrame(columns=tickers)
     for ticker in tickers:
-        closing_prices = get_prices(ticker=ticker, n_obs=n_obs+1, interval=interval)
+        closing_prices = get_prices(ticker=ticker, n_obs=n_obs+1, interval=interval, last_date=last_date)
         while len(closing_prices) < n_obs+1:
             closing_prices = list(closing_prices) + list(closing_prices)
         closing_prices = closing_prices[-n_obs:]
@@ -22,14 +22,14 @@ def m6_data(interval='d', n_dim=100, n_obs=300):
     return df
 
 
-def m6_cov(f=None, interval='d', n_dim=100, n_obs=300):
+def m6_cov(f=None, interval='d', n_dim=100, n_obs=300, last_date=None):
     """ Use any skater to estimate daily (by default) covariance
     :param f: cov skater
     :return:
     """
     if f is None:
         f = run_emp_pcov_d0
-    df = m6_data(interval=interval, n_dim=n_dim, n_obs=n_obs)
+    df = m6_data(interval=interval, n_dim=n_dim, n_obs=n_obs, last_date=last_date)
     tickers = list(df.columns)
 
     s = {}

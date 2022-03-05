@@ -4,16 +4,28 @@ import time
 from functools import lru_cache
 import numpy as np
 import time
+import os
+
+
 
 @lru_cache(maxsize=500)
-def get_prices(ticker,n_obs,interval, max_attempts=10):
-    print('Getting '+ticker)
-    time.sleep(5)
+def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None):
     success = False
     attempts = 0
     while not success:
         try:
-            data = web.get_data_yahoo(ticker, interval=interval)[-n_obs - 1:]['Close'].values
+            path = f'cache/{ticker}.csv'
+            if not os.path.exists(path):
+                print('Getting '+ticker)
+                time.sleep(5)
+                raw_data = web.get_data_yahoo(ticker, interval=interval)
+                raw_data.reset_index().to_csv(path, index=False)
+            else:
+                raw_data = pd.read_csv(path)
+                raw_data['Date'] = pd.to_datetime(raw_data['Date'])
+                raw_data = raw_data[raw_data['Date'] <= last_date]
+                raw_data = raw_data.set_index('Date')
+            data = raw_data[-n_obs - 1:]['Close'].values
             success = True
         except Exception as e:
             print(str(e))
