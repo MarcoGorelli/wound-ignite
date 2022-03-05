@@ -11,6 +11,7 @@ from precise.skaters.portfoliostatic.allstaticport import  PORT
 
 # Example of creating an M6 Competition entry using random choice of cov estimation and port construction
 
+cache_path = 'cache'
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
@@ -24,7 +25,7 @@ if __name__=='__main__':
             port = args.port,
         )
         for last_date in ['2022-02-06']:
-            df = m6_competition_entry(f=ALL_COV_SKATERS[kwargs['f']], port=PORT[kwargs['port']], last_date=last_date)
+            df = m6_competition_entry(f=ALL_COV_SKATERS[kwargs['f']], port=PORT[kwargs['port']], last_date=last_date, cache_path=cache_path)
             name = f'{json.dumps(kwargs)}_{last_date}.csv'
             timestamped_csv_file = os.path.join(M6_EXAMPLES,'full',name)
             m6_dump(df=df,file_name=timestamped_csv_file)

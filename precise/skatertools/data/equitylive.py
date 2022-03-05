@@ -9,14 +9,14 @@ import os
 
 
 @lru_cache(maxsize=500)
-def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None):
+def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None, cache_path=None):
     success = False
     attempts = 0
     while not success:
         try:
-            path = f'/kaggle/input/precise-cache/{ticker}.csv'
+            path = f'{cache_path}/{ticker}.csv'
             if not os.path.exists(path):
-                print('Getting '+ticker)
+                print(f'Getting {ticker}')
                 time.sleep(5)
                 raw_data = web.get_data_yahoo(ticker, interval=interval)
                 raw_data.reset_index().to_csv(path, index=False)
@@ -28,11 +28,11 @@ def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None):
             data = raw_data[-n_obs - 1:]['Close'].values
             success = True
         except Exception as e:
-            print(str(e))
+            print(e)
             print('backing off')
             time.sleep(10)
             attempts += 1
-            if attempts>=max_attempts:
+            if attempts >= max_attempts:
                 raise ValueError
     return data
 

@@ -5,16 +5,28 @@ from pprint import pprint
 from precise.skaters.covariance.runemp import run_emp_pcov_d0
 
 
-def m6_data(interval='d', n_dim=100, n_obs=300, last_date=None):
-    constituents = pd.read_csv(
-        'https://raw.githubusercontent.com/microprediction/m6/main/data/official/M6_Universe.csv')[:n_dim]
-    tickers = constituents['symbol'].values
+def m6_data(interval='d', n_dim=100, n_obs=300, last_date=None, cache_path=None):
+    # constituents = pd.read_csv(
+    #     'https://raw.githubusercontent.com/microprediction/m6/main/data/official/M6_Universe.csv')[:n_dim]
+    # tickers = constituents['symbol'].values
+    tickers = np.array(['ABBV', 'ACN', 'AEP', 'AIZ', 'ALLE', 'AMAT', 'AMP', 'AMZN', 'AVB',
+       'AVY', 'AXP', 'BDX', 'BF-B', 'BMY', 'BR', 'CARR', 'CDW', 'CE',
+       'CHTR', 'CNC', 'CNP', 'COP', 'CTAS', 'CZR', 'DG', 'DPZ', 'DRE',
+       'DXC', 'FB', 'FTV', 'GOOG', 'GPC', 'HIG', 'HST', 'JPM', 'KR',
+       'OGN', 'PG', 'PPL', 'PRU', 'PYPL', 'RE', 'ROL', 'ROST', 'UNH',
+       'URI', 'V', 'VRSK', 'WRK', 'XOM', 'IVV', 'IWM', 'EWU', 'EWG',
+       'EWL', 'EWQ', 'IEUS', 'EWJ', 'EWT', 'MCHI', 'INDA', 'EWY', 'EWA',
+       'EWH', 'EWZ', 'EWC', 'IEMG', 'LQD', 'HYG', 'SHY', 'IEF', 'TLT',
+       'SEGA.L', 'IEAA.L', 'HIGH.L', 'JPEA.L', 'IAU', 'SLV', 'GSG',
+       'REET', 'ICLN', 'IXN', 'IGF', 'IUVL.L', 'IUMO.L', 'SPMV.L',
+       'IEVL.L', 'IEFM.L', 'MVEU.L', 'XLK', 'XLF', 'XLV', 'XLE', 'XLY',
+       'XLI', 'XLC', 'XLU', 'XLP', 'XLB', 'VXX'])
     if (interval=='m') and (n_obs>60):
         print('Too many obs, switching to daily ')
         interval = 'd'
     df = pd.DataFrame(columns=tickers)
     for ticker in tickers:
-        closing_prices = get_prices(ticker=ticker, n_obs=n_obs+1, interval=interval, last_date=last_date)
+        closing_prices = get_prices(ticker=ticker, n_obs=n_obs+1, interval=interval, last_date=last_date, cache_path=cache_path)
         while len(closing_prices) < n_obs+1:
             closing_prices = list(closing_prices) + list(closing_prices)
         closing_prices = closing_prices[-n_obs:]
@@ -22,14 +34,14 @@ def m6_data(interval='d', n_dim=100, n_obs=300, last_date=None):
     return df
 
 
-def m6_cov(f=None, interval='d', n_dim=100, n_obs=300, last_date=None):
+def m6_cov(f=None, interval='d', n_dim=100, n_obs=300, last_date=None, cache_path=None):
     """ Use any skater to estimate daily (by default) covariance
     :param f: cov skater
     :return:
     """
     if f is None:
         f = run_emp_pcov_d0
-    df = m6_data(interval=interval, n_dim=n_dim, n_obs=n_obs, last_date=last_date)
+    df = m6_data(interval=interval, n_dim=n_dim, n_obs=n_obs, last_date=last_date, cache_path=cache_path)
     tickers = list(df.columns)
 
     s = {}

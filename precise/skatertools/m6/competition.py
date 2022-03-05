@@ -26,7 +26,9 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
                          hate:[str]=None,   # List of companies you hate
                          intensity:float=1.0,
                          verbose=True,
-                         last_date=None):
+                         last_date=None,
+                         cache_path=None,
+                         ):
     """
            Example of generating an M6 Entry
            pip install PyPortfolioOpt
@@ -67,7 +69,8 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
     df_prob, df_cov = m6_probabilities(f=f, interval=interval, n_dim=n_dim,
                                             n_samples=n_samples,
                                             n_obs=n_obs, verbose=verbose,
-                                            love=love, hate=hate, intensity=intensity, last_date=last_date)
+                                            love=love, hate=hate, intensity=intensity, last_date=last_date,
+                                            cache_path=cache_path)
     cov = df_cov.values
     if extra_shrink:
         cov = affine_shrink(cov, phi=phi, lmbd=lmbd)
