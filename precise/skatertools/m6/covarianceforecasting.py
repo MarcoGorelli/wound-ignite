@@ -45,6 +45,7 @@ def m6_cov(f=None, interval='d', n_dim=100, n_obs=300, last_date=None, cache_pat
     tickers = list(df.columns)
 
     s = {}
+    # for each row
     for y in df.values:
         x_mean, x_cov, s = f(s=s, y=y)
     return pd.DataFrame(index=tickers, columns=tickers, data=x_cov)

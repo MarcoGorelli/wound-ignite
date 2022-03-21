@@ -13,11 +13,18 @@ def data_population_covariance(xs):
     """
         xs:  (n_samples, n_vars)
         Like np.cov but works if there is only one row
+
+        returns: (1, 1) if 1 row, else (100, 100)
+
+        each column is a variable, each row an observation
+        so, we get a matrix of how each variable correlates
+        with each other variable
     """
     if isinstance(xs,pd.DataFrame):
         return data_to_square_dataframe(df=xs, data_func=data_population_covariance)
     else:
         if np.shape(xs)[0]==1:
+            # just, variance
             return np.var(np.array(xs).ravel())*np.eye(1)
         else:
             return np.cov(np.array(xs), rowvar=False, bias=True)

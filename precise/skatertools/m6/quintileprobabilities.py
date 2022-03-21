@@ -24,6 +24,9 @@ def mvn_quintile_probabilities(sgma, n_samples, mu=None):
 
 
 def scores_to_quintiles(x):
+    # can probably be sped-up by orders
+    # of magnitude
+    breakpoint()
     ys = list()
     for xi in x:
         q = np.quantile(x,[0.2,0.4,0.6,0.8])

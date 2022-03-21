@@ -37,6 +37,7 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
            n_obs    - number of time points to use in cov estimation (max 60 if interval='m')
            n_dim    - Set at 100 for actual contest, but lower to test
            port     - A portfolio creator (see /portfolioutil )
+           n_samples- ???
            f        - A cov skater
            extra_shrink - If True, will perform additional shrinkage over and above the skater or portfolio method using
                phi      - (Additional) Ridge parameter, suggest (1,1.5)
