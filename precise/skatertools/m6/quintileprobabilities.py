@@ -26,12 +26,7 @@ def mvn_quintile_probabilities(sgma, n_samples, mu=None):
 def scores_to_quintiles(x):
     # can probably be sped-up by orders
     # of magnitude
-    ys = list()
-    for xi in x:
-        q = np.quantile(x,[0.2,0.4,0.6,0.8])
-        y = np.searchsorted(q, xi)
-        ys.append(y)
-    return np.array(ys)
+    return pd.qcut(x.flatten(), q=[0, .2, .4, .6, .8, 1], labels=False).reshape(x.shape)
 
 
 

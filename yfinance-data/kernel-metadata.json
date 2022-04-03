@@ -1,0 +1,13 @@
+{
+  "id": "marcogorelli/cache-yfinance-data",
+  "title": "cache-yfinance-data",
+  "code_file": "cache-yfinance-data.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

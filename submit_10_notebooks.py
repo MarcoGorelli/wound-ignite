@@ -4,9 +4,14 @@ import time
 with open('notebooks/kernel-metadata.json') as fd:
     orig_content = fd.read()
 
-F = 20
+F = 999
+PORTS = [
+    range(0, 10),
+    range(10, 20),
+    range(20, 23),
+]
 
-for i in range(20, 23):
+for i in PORTS[0]:
     new_content = orig_content.replace('f-0-port-0', f'f-{F}-port-{i}')
     with open('notebooks/kernel-metadata.json', 'w') as fd:
         fd.write(new_content)

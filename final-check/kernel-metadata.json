@@ -1,0 +1,13 @@
+{
+  "id": "marcogorelli/precise-final-check",
+  "title": "precise-final-check",
+  "code_file": "precise-final-check.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["marcogorelli/precise-submit", "marcogorelli/cache-yfinance-data"]
+}
