@@ -1,0 +1,5 @@
+1. delete all files in cache/*
+2. run example_submission
+3. upload those files to Kaggle (precise-cache)
+4. run the combine notebook
+5. run the submit notebook

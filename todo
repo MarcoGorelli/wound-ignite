@@ -1,0 +1,16 @@
+1. check that you can upload 10 notebooks with size=1
+2. check we can upload 1, in a systematic way (ports 1-10), f 1-10 in each one
+
+RPS
+port 0: 3, 6, 10, 15, 16
+port 1: 6, 13, 15, 16
+port 2: 3, 6, 10, 12, 13, 16, 
+port 3: 3, 6, 10, 13, 16
+port 4: 3, 6, 10, 12, 13, 15, 16
+port 5: 3, 6, 10, 12, 15, 16
+port 6: 3, 6, 10, 12, 13, 15,
+port 7: 3, 6, 10, 12, 13, 15, 16
+
+IR
+port 6: 6
+port 2: 

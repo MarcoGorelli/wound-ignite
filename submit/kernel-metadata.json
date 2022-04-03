@@ -1,0 +1,13 @@
+{
+  "id": "marcogorelli/precise-submit",
+  "title": "precise-submit",
+  "code_file": "precise-submit.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["marcogorelli/precise-combine"]
+}
