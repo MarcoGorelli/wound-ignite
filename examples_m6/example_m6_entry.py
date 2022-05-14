@@ -12,8 +12,8 @@ from precise.skaters.portfoliostatic.allstaticport import  PORT
 # Example of creating an M6 Competition entry using random choice of cov estimation and port construction
 
 cache_path = 'cache'
-f = 0
-port = 0
+f = 46
+port = 14
 
 if __name__=='__main__':
-    df = m6_competition_entry(f=ALL_D0_SKATERS[f], port=PORT[port], last_date=pd.Timestamp.now(), cache_path=cache_path)
+    df = m6_competition_entry(f=ALL_D0_SKATERS[f], port=PORT[port], last_date=pd.Timestamp.now(), cache_path=cache_path, scale_w=1/.25)

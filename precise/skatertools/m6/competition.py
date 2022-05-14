@@ -28,6 +28,7 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
                          verbose=True,
                          last_date=None,
                          cache_path=None,
+                         scale_w=None,
                          ):
     """
            Example of generating an M6 Entry
@@ -85,6 +86,8 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
 
     sum_abs = sum( [abs(wi) for wi in w] )
     w_normalized = [ wi/sum_abs for wi in w]
+    if scale_w is not None:
+        w_normalized = [wi/scale_w for wi in w_normalized]
     w_rounded = [round(wi, 5) for wi in w_normalized]
 
     entry = df_prob.copy()
