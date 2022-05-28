@@ -79,6 +79,7 @@ def m6_competition_entry(interval='d', f=None, port=None, n_dim=100, n_samples=5
         cov = nearest_pos_def(cov)
 
     print('Computing portfolio w/ ad-hoc tilt')
+    breakpoint()
     w = port(cov=cov)
     mu = affection_tilt(covdf=df_cov, love=love, hate=hate, intensity=intensity)
     w[mu>0] = w[mu>0] + 1.0/5*len(love)

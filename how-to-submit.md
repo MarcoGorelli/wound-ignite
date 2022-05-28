@@ -7,6 +7,7 @@
    check status with:  `for i in $(seq 0 22); do kaggle kernels status marcogorelli/f-999-port-$i; done;`
 5. update yfinance cache: `kaggle kernels push -p yfinance-data`
 6. check cv-results: `kaggle kernels push -p cv-results` (update the kernel_metadata sources if notebook inputs have changed)
+   make sure to remove the TODO line if it's there!
 7. put 8 best from each category into the combine notebook
 8. run the combine notebook: `kaggle kernels push -p combine`
 9. run the submit notebook: `kaggle kernels push -p submit`

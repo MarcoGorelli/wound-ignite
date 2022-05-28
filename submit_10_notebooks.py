@@ -10,8 +10,8 @@ PORTS = [
     range(10, 20),
     range(20, 23),
 ]
-FOLD = 0  # make this 0, 1, 2
-SCALE_W = 4  # make this 4 and None
+FOLD = 1  # make this 0, 1, 2
+SCALE_W = 1  # make this 4 and None
 
 for i in PORTS[FOLD]:
     new_content = orig_content.replace('f-0-port-0', f'f-{F}-port-{SCALE_W}-{i}')
