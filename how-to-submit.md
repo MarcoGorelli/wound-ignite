@@ -10,6 +10,7 @@
    make sure to remove the TODO line if it's there!
    to get the best candidates, run the notebook `find-best-from-cv`
    copy and paste the best candidates into the combine notebook
+   make sure to compare with `check-naive-cv` notebook results
 8. run the combine notebook: `kaggle kernels push -p combine`
 9. run the submit notebook: `kaggle kernels push -p submit`
 10. final check: `kaggle kernels push -p final-check`
