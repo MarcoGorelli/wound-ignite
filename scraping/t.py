@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json
 
 page = requests.get('https://m6competition.com/Leaderboard')
-soup = BeautifulSoup(page.content, parser='lxml')
+soup = BeautifulSoup(page.content, features='lxml')
 
 quarter = soup.find('select', {'id': 'selectQuarter'})
 quarter_ids = [(i['value'], i.get_text()) for i in quarter.find_all('option')]

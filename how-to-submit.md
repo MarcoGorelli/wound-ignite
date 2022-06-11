@@ -1,6 +1,7 @@
 # How to submit
 
-1. delete all files in cache/*: `rm cache/*.csv`
+0. delete all files in cache/*: `rm cache/*.csv`
+1. run `python get_tickers.py` to get the latest tickers, and put them in `covarianceforecasting.py`
 2. run example_submission: `python examples_m6/example_m6_entry.py`
 3. upload those files to Kaggle (precise-cache): `kaggle datasets version -p cache -m '2ndround'`
 4. before the saturday when the period ends, run: `python submit_10_notebooks.py`, 3 times (modifying the ports index: `PORTS[0]`, then `PORTS[1]`, then `PORTS[2]`)

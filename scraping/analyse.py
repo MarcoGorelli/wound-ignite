@@ -7,6 +7,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('period')
 parser.add_argument('id_')
 parser.add_argument('--name', default='MarcoGorelli')
+parser.add_argument('--date', required=False)
+parser.add_argument('--sort', required=False, default='position')
 args = parser.parse_args()
 
 dfs = []
@@ -26,6 +28,9 @@ for file in os.listdir('.'):
     df['date'] = ts
     dfs.append(df)
 df = pd.concat(dfs)
-df = df[df['teamName']==args.name].sort_values('date')
-print(df)
+
+if args.date is not None:
+    print(df[df['date']==args.date].sort_values(args.sort).head(10))    
+else:
+    print(df[df['teamName']==args.name].sort_values('date'))
 

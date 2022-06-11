@@ -25,7 +25,7 @@ def get_prices(ticker,n_obs,interval, max_attempts=10, last_date=None, cache_pat
                 raw_data['Date'] = pd.to_datetime(raw_data['Date'])
                 raw_data = raw_data[raw_data['Date'] <= last_date]
                 raw_data = raw_data.set_index('Date')
-            data = raw_data[-n_obs - 1:]['Close'].values
+            data = raw_data[-n_obs - 1:]['Adj Close'].values
             success = True
         except Exception as e:
             print(e)

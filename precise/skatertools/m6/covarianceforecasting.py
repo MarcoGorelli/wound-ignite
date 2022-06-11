@@ -6,21 +6,26 @@ from precise.skaters.covariance.runemp import run_emp_pcov_d0
 
 
 def m6_data(interval='d', n_dim=100, n_obs=300, last_date=None, cache_path=None):
-    # constituents = pd.read_csv(
-    #     'https://raw.githubusercontent.com/microprediction/m6/main/data/official/M6_Universe.csv')[:n_dim]
-    # tickers = constituents['symbol'].values
-    tickers = np.array(['ABBV', 'ACN', 'AEP', 'AIZ', 'ALLE', 'AMAT', 'AMP', 'AMZN', 'AVB',
-       'AVY', 'AXP', 'BDX', 'BF-B', 'BMY', 'BR', 'CARR', 'CDW', 'CE',
-       'CHTR', 'CNC', 'CNP', 'COP', 'CTAS', 'CZR', 'DG', 'DPZ', 'DRE',
-       'DXC', 'FB', 'FTV', 'GOOG', 'GPC', 'HIG', 'HST', 'JPM', 'KR',
-       'OGN', 'PG', 'PPL', 'PRU', 'PYPL', 'RE', 'ROL', 'ROST', 'UNH',
-       'URI', 'V', 'VRSK', 'WRK', 'XOM', 'IVV', 'IWM', 'EWU', 'EWG',
-       'EWL', 'EWQ', 'IEUS', 'EWJ', 'EWT', 'MCHI', 'INDA', 'EWY', 'EWA',
-       'EWH', 'EWZ', 'EWC', 'IEMG', 'LQD', 'HYG', 'SHY', 'IEF', 'TLT',
-       'SEGA.L', 'IEAA.L', 'HIGH.L', 'JPEA.L', 'IAU', 'SLV', 'GSG',
-       'REET', 'ICLN', 'IXN', 'IGF', 'IUVL.L', 'IUMO.L', 'SPMV.L',
-       'IEVL.L', 'IEFM.L', 'MVEU.L', 'XLK', 'XLF', 'XLV', 'XLE', 'XLY',
-       'XLI', 'XLC', 'XLU', 'XLP', 'XLB', 'VXX'])
+    tickers = np.array([['ABBV', 'ACN', 'AEP', 'AIZ', 'ALLE'],
+       ['AMAT', 'AMP', 'AMZN', 'AVB', 'AVY'],
+       ['AXP', 'BDX', 'BF-B', 'BMY', 'BR'],
+       ['CARR', 'CDW', 'CE', 'CHTR', 'CNC'],
+       ['CNP', 'COP', 'CTAS', 'CZR', 'DG'],
+       ['DPZ', 'DRE', 'DXC', 'EWA', 'EWC'],
+       ['EWG', 'EWH', 'EWJ', 'EWL', 'EWQ'],
+       ['EWT', 'EWU', 'EWY', 'EWZ', 'FTV'],
+       ['GOOG', 'GPC', 'GSG', 'HIG', 'HIGH.L'],
+       ['HST', 'HYG', 'IAU', 'ICLN', 'IEAA.L'],
+       ['IEF', 'IEFM.L', 'IEMG', 'IEUS', 'IEVL.L'],
+       ['IGF', 'INDA', 'IUMO.L', 'IUVL.L', 'IVV'],
+       ['IWM', 'IXN', 'JPEA.L', 'JPM', 'KR'],
+       ['LQD', 'MCHI', 'META', 'MVEU.L', 'OGN'],
+       ['PG', 'PPL', 'PRU', 'PYPL', 'RE'],
+       ['REET', 'ROL', 'ROST', 'SEGA.L', 'SHY'],
+       ['SLV', 'SPMV.L', 'TLT', 'UNH', 'URI'],
+       ['V', 'VRSK', 'VXX', 'WRK', 'XLB'],
+       ['XLC', 'XLE', 'XLF', 'XLI', 'XLK'],
+       ['XLP', 'XLU', 'XLV', 'XLY', 'XOM']]).flatten()
     if (interval=='m') and (n_obs>60):
         print('Too many obs, switching to daily ')
         interval = 'd'
