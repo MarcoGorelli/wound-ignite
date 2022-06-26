@@ -9,5 +9,5 @@
   "enable_internet": "true",
   "dataset_sources": ["marcogorelli/precise-cache"],
   "competition_sources": [],
-  "kernel_sources": []
+  "kernel_sources": ["marcogorelli/find-best-from-cv"]
 }

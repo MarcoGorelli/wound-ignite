@@ -9,13 +9,11 @@
 5. update yfinance cache: `kaggle kernels push -p yfinance-data`
 6. check cv-results: `kaggle kernels push -p cv-results` (update the kernel_metadata sources if notebook inputs have changed)
    make sure to remove the TODO line if it's there!
-   to get the best candidates, run the notebook `find-best-from-cv`
-   copy and paste the best candidates into the combine notebook
-   make sure to compare with `check-naive-cv` notebook results
+6a. run `kaggle kernels push -p check-naive-cv`
+6b. to get the best candidates, run the notebook `kaggle kernels push -p find-best-from-cv`
+	NOTE: you may want to tighten or loosen the conditions to find final_candidates
 8. run the combine notebook: `kaggle kernels push -p combine`
 9. run the submit notebook: `kaggle kernels push -p submit`
 10. final check: `kaggle kernels push -p final-check`
-11. submit the output of that notebook
+11. submit the output of the submit notebook
 
-Today: just gonna go with last years' ones
-Start with ports 0-20, if there's time, repeat steps 6 - 11 once the last notebook has finished.
