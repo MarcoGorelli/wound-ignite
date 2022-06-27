@@ -16,6 +16,7 @@ df = pd.concat(dfs)
 df = df.drop_duplicates(['symbol', 'date', 'download_date']).copy()
 
 df = df[df['date'].isin(df[df['download_date'].eq(df['download_date'].max())]['date'].unique())].copy()
+print(f'Latest date data has been downloaded for: {df["date"].max()}')
 df = df.sort_values('download_date').copy()
 pivot = df.pivot_table(index=['symbol', 'date'], columns='download_date', values='price')
 pivot = pivot.sort_index(axis=1).copy()

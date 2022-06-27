@@ -1,0 +1,13 @@
+{
+  "id": "marcogorelli/check-naive-cv",
+  "title": "check-naive-cv",
+  "code_file": "check-naive-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": ["marcogorelli/m6data"],
+  "competition_sources": [],
+  "kernel_sources": ["marcogorelli/cache-yfinance-data"]
+}
