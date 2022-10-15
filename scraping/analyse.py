@@ -32,5 +32,5 @@ df = pd.concat(dfs)
 if args.date is not None:
     print(df[df['date']==args.date].sort_values(args.sort).head(10))    
 else:
-    print(df[df['teamName']==args.name].sort_values('date'))
+    print(df[df['teamName'].str.startswith(args.name)].sort_values('date'))
 
