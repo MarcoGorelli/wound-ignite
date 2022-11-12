@@ -2,6 +2,7 @@
 
 # before Saturday
 0. delete all files in cache/*: `rm cache/*.csv`
+0b. run `python generate_dre.py`
 1. run `python get_tickers.py` to get the latest tickers, and put them in `covarianceforecasting.py`
 2. run example_submission: `python examples_m6/example_m6_entry.py`
 3. upload those files to Kaggle (precise-cache): `kaggle datasets version -p cache -m '2ndround'`
