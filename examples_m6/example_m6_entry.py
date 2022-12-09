@@ -14,6 +14,7 @@ from precise.skaters.portfoliostatic.allstaticport import  PORT
 cache_path = 'cache'
 f = 0
 port = 0
+breakpoint()
 
 if __name__=='__main__':
     df = m6_competition_entry(f=ALL_D0_SKATERS[f], port=PORT[port], last_date=pd.Timestamp.now(), cache_path=cache_path, scale_w=1/.25)

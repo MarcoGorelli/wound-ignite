@@ -7,7 +7,7 @@ import glob
 import os
 
 dfs = []
-for file in glob.glob('../../asset_prices/assets_m6*'):
+for file in glob.glob('../assets_m6*'):
     df = pd.read_csv(file)
     df['date'] = pd.to_datetime(df['date'])
     df['download_date'] = pd.Timestamp(pd.Timestamp(os.path.getmtime(file), unit='s').date())

@@ -11,15 +11,6 @@
   "competition_sources": [],
   "kernel_sources": [
     "marcogorelli/cache-yfinance-data",
-    "marcogorelli/f-999-port-1-0",
-    "marcogorelli/f-999-port-1-1",
-    "marcogorelli/f-999-port-1-2",
-    "marcogorelli/f-999-port-1-3",
-    "marcogorelli/f-999-port-1-4",
-    "marcogorelli/f-999-port-1-5",
-    "marcogorelli/f-999-port-1-6",
-    "marcogorelli/f-999-port-1-7",
-    "marcogorelli/f-999-port-1-8",
-    "marcogorelli/f-999-port-1-9"
+    "marcogorelli/f-999-port-1-0"
   ]
 }
