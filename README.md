@@ -15,6 +15,10 @@ I'll put together a proper write-up, but for now here's everything I used!
 Backtest as many strategies as possible for the past 3 months, and pick whatever works best. No manual adjustments,
 I don't know anything about finance.
 
+## What prize did this win?
+
+Second place in Q1 ($6,000).
+
 ## Why 'wound-ignite'?
 
 This repo is a fork of https://github.com/microprediction/precise. GitHub doesn't allow for private forks, so
